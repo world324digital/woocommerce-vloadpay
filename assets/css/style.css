@@ -19,3 +19,31 @@
 .separator:not(:empty)::after {
     margin-left: .25em;
 }
+
+#quick_pay {
+    width: 100%;
+    background: #107a54;
+    color: white;
+    text-decoration: none !important;
+    margin-top: 2.7%;
+    margin-bottom: 2.7%;
+    text-align: center;
+}
+
+#vload_cards {
+    margin-top: 2.7%;
+    width: 100%;
+}
+
+#pay_with_vload {
+    width: 100%;
+    background: #107a54;
+    color: white;
+    text-decoration: none !important;
+}
+
+.wc_payment_method .payment_box fieldset {
+    padding: 1.5rem !important;
+    border: 0 !important;
+    background: transparent !important;
+}

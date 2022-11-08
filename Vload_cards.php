@@ -144,11 +144,10 @@ function vload_cards_init_class()
 				echo '<div style="padding:1.5rem;"><label>' . $this->description . '</label>';
 				echo '<div class="clear"></div>
 				<input type="hidden" name="is_quick_pay" value="0" autocomplete="off" id="is_quick_pay" />
-				<a class="button" id="quick_pay" value="QUICK PAY!" data-value="QUICK PAY!" style="width: 100%;
-				background: #107a54;color: white;text-decoration:none!important;margin-top: 2.7%;margin-bottom: 2.7%;">QUICK PAY!</a></fieldset>';
-				echo '<p>1. Login or setup an account</p>';
+				<button class="button" id="quick_pay" value="VLOAD QUICKPAY!" data-value="VLOAD QUICKPAY!">VLOAD QUICKPAY!</button>';
+				echo '<p>1. Login or Register an account</p>';
 				echo '<p>2. Select or add a payment method</p>';
-				echo '<p>3. Buy VLoad Digital Card and pay with it</p>';
+				echo '<p>3. Buy your VLoad Digital Card and instantly pay</p>';
 				echo '<div class="separator">OR</div></div>';
 			}
 			if ($this->testmode) {
@@ -161,15 +160,15 @@ function vload_cards_init_class()
 
 			echo '<div class="form-row form-row-wide">
 
-				<label>' . $this->description . '<span class="required">*</span></label>
-				<input id="vload_cards" name="vload_cards" type="text" autocomplete="off" style="margin-top: 2.7%;width:100%;">
+				<label>Already have your VLOAD Digital Card?<br>
+				Paste your VLOAD PIN to instantly pay&nbsp;<span class="required">*</span></label>
+				<input id="vload_cards" name="vload_cards" type="text" autocomplete="off">
 				</div>
 
 				<div class="clear"></div>';
 
 			do_action('woocommerce_credit_card_form_end', $this->id);
-			echo '<div class="clear"></div><button type="submit" class="button" id="pay_with_vload" value="PAY WITH VLOAD" data-value="PAY WITH VLOAD" style="width: 100%;
-			background: #107a54;color: white;text-decoration:none!important;">PAY WITH VLOAD</button></fieldset>';
+			echo '<div class="clear"></div><button type="submit" class="button" id="pay_with_vload" value="PAY WITH VLOAD" data-value="PAY WITH VLOAD">PAY WITH VLOAD</button></fieldset>';
 		}
 
 		public function payment_scripts()
