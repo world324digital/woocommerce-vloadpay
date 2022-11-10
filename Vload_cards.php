@@ -231,11 +231,13 @@ function vload_cards_init_class()
 				$billing_city       = WC()->customer->get_billing_city();
 				$billing_state      = WC()->customer->get_billing_state();
 				$billing_country    = WC()->customer->get_billing_country();
+				$billing_email    	= WC()->customer->get_billing_email();
 				$billing_phone = "+" . str_replace("+", "", $billing_phone);
 				$params = array(
 					"amount" => $cart_total_amount,
 					"email" => $billing_email,
 					"merchant_id" => $this->merchant_id,
+					"payer[id]" => $current_user_id,
 					"return_url" => $this->get_return_url($order),
 				);
 				if (isset($billing_first_name) && $billing_first_name != "")
