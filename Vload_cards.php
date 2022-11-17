@@ -399,19 +399,21 @@ function vload_cards_init_class()
 		public function order_received($order_id)
 		{
 			global $woocommerce;
-			$order = new WC_Order($order_id);
-			$error = filter_input(INPUT_GET, 'error');
-			if (isset($_GET['redeem']) && $_GET['redeem'] != '') {
-				update_post_meta($order_id, 'redeem', $_GET['redeem']);
-				$order->payment_complete();
-				$order->reduce_order_stock();
-				$order->update_status('completed');
-			} else if ($error == 'canceled') {
-				$order->update_status('cancelled');
-			} else {
-				$order->update_status('failed');
+			if ($this->is_quick_pay) {
+				$order = new WC_Order($order_id);
+				$error = filter_input(INPUT_GET, 'error');
+				if (isset($_GET['redeem']) && $_GET['redeem'] != '') {
+					update_post_meta($order_id, 'redeem', $_GET['redeem']);
+					$order->payment_complete();
+					$order->reduce_order_stock();
+					$order->update_status('completed');
+				} else if ($error == 'canceled') {
+					$order->update_status('cancelled');
+				} else {
+					$order->update_status('failed');
+				}
+				$woocommerce->cart->empty_cart();
 			}
-			$woocommerce->cart->empty_cart();
 		}
 
 
